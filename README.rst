@@ -45,10 +45,6 @@ Usage - Gene Mapping
    :target: https://pypi.python.org/pypi/genemapper
    :alt: PyPI version
 
-.. |Build Status| image:: https://img.shields.io/travis/salimdason/genemapper.svg
-   :target: https://travis-ci.com/salimdason/genemapper
-   :alt: Build Status
-
 .. |Documentation Status| image:: https://readthedocs.org/projects/genemapper/badge/?version=latest
    :target: https://genemapper.readthedocs.io/en/latest/?version=latest
    :alt: Documentation Status
