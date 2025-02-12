@@ -1,7 +1,7 @@
 GeneMapper
 ==========
 
-|PyPI version| |Build Status| |Documentation Status| |BioPython| |Pandas| |Python version|
+|PyPI version| |Documentation Status| |BioPython| |Pandas| |Python version|
 
 A command-line tool for retrieving GenBank metadata and mapping coding
 sequences between query and subject FASTA files to identify their most
