@@ -13,7 +13,7 @@ similar counterparts.
 Overview
 --------
 
-GeneMapper provides two main functionalities:
+GeneMapper provides two main functions:
 
 1. **Metadata Retrieval**:
    - Extracts an accession number from a FASTA header and fetches the corresponding GenBank record from NCBI.
@@ -105,7 +105,7 @@ How It Works
 
 3. **parseFastaFile**  
    Reads all CDS in a given FASTA, extracting a "locus_tag" (and optional
-   "[location=...]") to store each sequence in a dictionary.
+   "[location=...]") to store each sequence in a python dictionary.
 
 4. **alignAndScore**  
    Performs a global alignment with Biopython’s PairwiseAligner. Normalizes
