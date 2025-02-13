@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "genemapper"
-version = "1.0.0"
+version = "1.0.3"
 description = "A command-line tool for retrieving GenBank metadata and mapping coding sequences between query and subject FASTA files to identify their most similar counterparts."
 readme = "README.rst"
 authors = [
@@ -18,7 +18,9 @@ classifiers = [
 ]
 license = {text = "MIT license"}
 dependencies = [
-  
+    "biopython>=1.78",
+    "openpyxl==3.1.5",
+    "pandas>2.0"
 ]
 
 [project.optional-dependencies]
@@ -41,7 +43,8 @@ package-dir = {"" = "src"}
 [tool.setuptools.package-data]
 "*" = ["*.*"]
 
-
+[project.scripts]
+genemapper = "genemapper.cli:main"
 
 
 # Mypy
@@ -60,4 +63,5 @@ warn_no_return = true
 module = "tests.*"
 allow_untyped_defs = true
 disable_error_code = "attr-defined"
+
 
