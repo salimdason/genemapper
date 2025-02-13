@@ -1,7 +1,7 @@
 GeneMapper
 ==========
 
-|PyPI version| |Build Status| |Documentation Status| |BioPython| |Pandas| |Python version|
+|PyPI version||Documentation Status| |BioPython| |Pandas| |Python version|
 
 A command-line tool for retrieving GenBank metadata and mapping coding
 sequences between query and subject FASTA files to identify their most
@@ -56,14 +56,14 @@ Usage - Metadata Retrieval
 --------------------------
 
 Fetch GenBank metadata for query/reference FASTA files. The FASTA headers
-must contain an accession in the form ``>lcl|ACCESSION_cds_...`` for
+must contain an accession in the form ">lcl|ACCESSION_cds_..." for
 automatic extraction.
 
 .. code:: bash
 
     genemapper metadata --query my_query_gene_cds.fasta \
                         --reference my_subject_gene_cds.fasta \
-                        --email you@example.com
+                        --email mohammed.dason@polito.it
 
 What this does:
 
@@ -90,7 +90,7 @@ What this does:
 - **Parses** both FASTA files, extracting locus tags and sequences.
 - **Aligns** each query sequence to all subject sequences using a global aligner.
 - **Filters** results by the similarity threshold.
-- **Saves** everything in an Excel file (`results.xlsx`).
+- **Saves** everything in an Excel file ("results.xlsx").
 
 How It Works
 ------------
@@ -100,12 +100,12 @@ How It Works
    to detect the accession in the header.
 
 2. **fetch_genbank_record**  
-   Contacts NCBI using Biopython’s `Entrez.efetch` to download the GenBank
-   record. Requires a valid email to respect NCBI’s policy.
+   Contacts NCBI using Biopython’s "Entrez.efetch" to download the GenBank
+   record. Requires a valid email to respect NCBI's policy.
 
 3. **parseFastaFile**  
-   Reads all CDS in a given FASTA, extracting a ``locus_tag`` (and optional
-   ``[location=...]``) to store each sequence in a dictionary.
+   Reads all CDS in a given FASTA, extracting a "locus_tag" (and optional
+   "[location=...]") to store each sequence in a dictionary.
 
 4. **alignAndScore**  
    Performs a global alignment with Biopython’s PairwiseAligner. Normalizes
@@ -117,14 +117,14 @@ How It Works
    and flags ties if multiple subjects share the same top score.
 
 6. **parallelGenomeMappingWithLocation**  
-   Uses Python’s multiprocessing to handle each query locus tag in parallel,
+   Uses Python's multiprocessing to handle each query locus tag in parallel,
    which speeds up large genome comparisons. Writes results to Excel when finished.
 
 Logging
 -------
 
 GeneMapper writes runtime events and warnings to a log file called
-``genome_mapping.log``. This includes:
+"genome_mapping.log". This includes:
 
 - **Metadata retrieval failures** (e.g., no valid accession).
 - **Mapping** details, warnings about no matches above threshold, ties, or I/O errors.
@@ -137,36 +137,34 @@ Troubleshooting & Tips
 ----------------------
 
 1. **No Accession Found**  
-   Make sure your FASTA headers follow the format ``>lcl|ACCESSION_cds_...``.
+   Make sure your FASTA headers follow the format ">lcl|ACCESSION_cds_...".
 
 2. **No Matches Above Threshold**  
-   Lower the ``--similarityThreshold`` or check for sequence divergence. Review
+   Lower the "--similarityThreshold" or check for sequence divergence. Review
    the log to see actual scores.
 
 3. **Parallel Performance**  
-   If you have many CPU cores, increase ``--numProcesses``. If you hit resource
-   limits, reduce it.
+   If you have many CPU cores, increase "--numProcesses". NOTE: by deafault all cores are used.
+   If you hit resource limits, please reduce it by setting a suitable value.
 
 4. **Spreadsheet Issues**  
    The script writes an Excel file via **pandas** and **openpyxl**. If needed,
-   you can adapt the code to write CSV by modifying `mappingDf.to_csv(...)`.
+   you can adapt the code to write CSV by modifying "mappingDf.to_csv(...)".
 
 5. **Versions**  
-   - Biopython ≥ 1.78 is required for `PairwiseAligner`.
+   - Biopython ≥ 1.78 is required for "PairwiseAligner".
    - Python 3.7+ is recommended.
+   - Openpyxl 3.1.5 (pinned) is required for the creation of the excel file
+   - Pandas > 2.0 is recommended. 
 
 License
 -------
 
-**MIT License**: See the [LICENSE](LICENSE) file for full details.
+**MIT License**: See the licence file for full details.
 
 .. |PyPI version| image:: https://img.shields.io/pypi/v/genemapper.svg
    :target: https://pypi.python.org/pypi/genemapper
    :alt: PyPI version
-
-.. |Build Status| image:: https://img.shields.io/travis/salimdason/genemapper.svg
-   :target: https://travis-ci.com/salimdason/genemapper
-   :alt: Build Status
 
 .. |Documentation Status| image:: https://readthedocs.org/projects/genemapper/badge/?version=latest
    :target: https://genemapper.readthedocs.io/en/latest/?version=latest
