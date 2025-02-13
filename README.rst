@@ -17,12 +17,12 @@ GeneMapper provides two main functionalities:
 
 1. **Metadata Retrieval**:
    - Extracts an accession number from a FASTA header and fetches the corresponding GenBank record from NCBI.
-   - Prints out relevant details such as organism name, record description, and publication date.
+   Prints out relevant details such as organism name, record description, and publication date.
 
 2. **Mapping Sequences**:
-   - Reads a **query FASTA** and a **subject FASTA**, each containing coding sequences (CDS).
-   - Uses pairwise alignment to score each query sequence against possible subject matches.
-   - Outputs an Excel file listing best matches, tie scenarios, unmatched sequences, and more.
+   - Reads a **query FASTA** and a **subject FASTA**, each containing coding sequences (CDS). 
+   It uses pairwise alignment to score each query sequence against possible subject matches, 
+   and outputs an Excel file listing best matches, tie scenarios, unmatched sequences e.t.c.
 
 Features
 --------
